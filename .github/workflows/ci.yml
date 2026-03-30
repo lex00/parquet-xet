@@ -26,5 +26,7 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install pyarrow numpy matplotlib jupyter nbconvert
-      - name: Execute notebook
+      - name: Execute benchmark notebook
         run: jupyter nbconvert --to notebook --execute parquet-xet-write-strategy.ipynb --output parquet-xet-write-strategy.ipynb
+      - name: Execute append-prototype notebook
+        run: jupyter nbconvert --to notebook --execute append-prototype.ipynb --output append-prototype.ipynb

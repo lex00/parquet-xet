@@ -1,7 +1,6 @@
 import { Workflow, Job, Step, Checkout, SetupPython } from "@intentius/chant-lexicon-github";
 
-// CI pipeline for lex00/parquet-xet — validates notebook executes without errors
-// Executes the benchmark notebook on every push to verify it runs without errors.
+// CI pipeline for lex00/parquet-xet — validates both notebooks execute without errors
 // Generated YAML is committed at ../.github/workflows/ci.yml
 
 export const workflow = new Workflow({
@@ -24,8 +23,12 @@ export const notebook = new Job({
       run: "pip install pyarrow numpy matplotlib jupyter nbconvert",
     }),
     new Step({
-      name: "Execute notebook",
+      name: "Execute benchmark notebook",
       run: "jupyter nbconvert --to notebook --execute parquet-xet-write-strategy.ipynb --output parquet-xet-write-strategy.ipynb",
+    }),
+    new Step({
+      name: "Execute append-prototype notebook",
+      run: "jupyter nbconvert --to notebook --execute append-prototype.ipynb --output append-prototype.ipynb",
     }),
   ],
 });
