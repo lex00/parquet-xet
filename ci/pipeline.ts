@@ -1,6 +1,6 @@
 import { Workflow, Job, Step, Checkout, SetupPython } from "@intentius/chant-lexicon-github";
 
-// CI pipeline for lex00/parquet-xet
+// CI pipeline for lex00/parquet-xet — validates notebook executes without errors
 // Executes the benchmark notebook on every push to verify it runs without errors.
 // Generated YAML is committed at ../.github/workflows/ci.yml
 
